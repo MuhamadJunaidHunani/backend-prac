@@ -7,6 +7,7 @@ app.use(express.json());
 
 const dataFilePath = path.join(__dirname, "data.json");
 const todoFilePath = path.join(__dirname, "users.json");
+
 app.post("/profile", (req, res) => {
   const data = req.body;
 
@@ -14,6 +15,7 @@ app.post("/profile", (req, res) => {
     if (err) {
       return res.status(500).json({ message: "Error saving data" });
     }
+    
     res.status(200).json({ message: "Data saved successfully" });
   });
   res.status(200).json(data);
